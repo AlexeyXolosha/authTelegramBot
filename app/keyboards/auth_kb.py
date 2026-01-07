@@ -1,12 +1,15 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from app.utils.text import MESSAGES
 
-def get_auth_keyboard() -> ReplyKeyboardMarkup:
+def get_auth_keyboard(lang: str = "ru") -> ReplyKeyboardMarkup:
     builder = ReplyKeyboardBuilder()
 
-    builder.row(KeyboardButton (
-        text="📱 Подтвердить номер телефона", 
-        request_contact=True
+    button_text = MESSAGES.get(lang, MESSAGES["ru"])["auth_button"]
+
+    builder.row(KeyboardButton(
+        text=button_text, 
+        request_contact=True # Самая важная часть остается без изменений
     ))
 
     return builder.as_markup(
