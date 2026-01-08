@@ -5,6 +5,7 @@ from aiogram.fsm.context import FSMContext
 from app.states.auth_states import AuthStates
 from app.keyboards.auth_kb import get_auth_keyboard
 from app.utils.text import MESSAGES
+from app.services.api_client import authorize_user_in_laravel
 
 router = Router()
 
@@ -50,7 +51,16 @@ async def handle_contact(message: types.Message, state: FSMContext):
         await message.answer(MESSAGES[lang]["phone_mismatch"])
         return
     
-    print(f"УСПЕХ: Номера совпали ({clean_phone(phone_from_tg)}). Отправляем в Laravel.")
+    await message.answer(MESSAGES[lang]["processing"])
+
+    success = await authorize_user_in_laravel(
+        user_data=user_data, 
+        contact=message.contact, 
+        from_user=message.from_user
+    )
     
-    await state.clear()
-    await message.answer(MESSAGES[lang]["processing"], reply_markup=types.ReplyKeyboardRemove())
+    if success:
+        await state.clear()
+        await message.answer(MESSAGES[lang].get("success", "✅ Успешно!"), reply_markup=types.ReplyKeyboardRemove())
+    else:
+        await message.answer(MESSAGES[lang].get("error", "❌ Ошибка сервера."))
