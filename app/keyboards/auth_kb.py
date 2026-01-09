@@ -9,7 +9,7 @@ def get_auth_keyboard(lang: str = "ru") -> ReplyKeyboardMarkup:
 
     builder.row(KeyboardButton(
         text=button_text, 
-        request_contact=True # Самая важная часть остается без изменений
+        request_contact=True 
     ))
 
     return builder.as_markup(

@@ -55,7 +55,12 @@ async def authorize_user_in_laravel(user_data: dict, contact, from_user):
                 timeout=10.0
             )
             logging.info(f"Backend Status: {response.status_code} - {response.text}")
-            return response.status_code == 200
+            
+            if response.status_code == 200:
+                return response.json()
+            
+            return None
+            
         except Exception as e:
             logging.error(f"API Error: {e}")
-            return False
+            return None # Вместо False возвращаем None
