@@ -17,7 +17,7 @@ MESSAGES = {
         "bad_link": "Programmadan giriň (nädogry baglanyşyk).",
         "processing": "⏳ Maglumatlar kabul edildi. Sistemada barlanýar...",
         "wrong_contact": "Ýalňyşlyk: Düwmäni basyp, diňe ÖZ belgiňizi iberiň.",
-        "auth_button": "📱 Belgin tassyklamak",
+        "auth_button": "📱 Belgini tassyklamak",
         "phone_mismatch": "❌ Telefon belgiňiz salkyndaky bilen gabat gelmedi.",
         "success": "✅ Awtorizasiýa üstünlikli!",
         "redirect_instruction": "Hasabyňyzy tassyklamak we goşundyga dolanmak üçin aşakdaky düwmä basyň.",
