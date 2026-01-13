@@ -6,7 +6,7 @@ import logging
 from app.config import config
 
 async def authorize_user_in_laravel(user_data: dict, contact, from_user):
-    url = f"{config.backend_url}/api/account/telegram/auth"
+    url = f"{config.backend_url}api/v1/account/telegram/auth"
 
     auth_date = int(time.time())
     tg_id = int(from_user.id)
@@ -63,4 +63,4 @@ async def authorize_user_in_laravel(user_data: dict, contact, from_user):
             
         except Exception as e:
             logging.error(f"API Error: {e}")
-            return None # Вместо False возвращаем None
+            return None

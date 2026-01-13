@@ -79,7 +79,7 @@ async def handle_contact(message: types.Message, state: FSMContext):
             return
 
         safe_token = urllib.parse.quote(token)
-        redirect_url = f"http://65.108.214.70/redirect?token={safe_token}"
+        redirect_url = f"https://rdrxes.ru/redirect.html?token={safe_token}"
         
         btn_text = MESSAGES[lang]["open_app_btn"]
         keyboard = InlineKeyboardMarkup(inline_keyboard=[
