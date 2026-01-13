@@ -98,16 +98,17 @@ async def handle_contact(message: types.Message, state: FSMContext):
             parse_mode="HTML"
         )
 
-        async def expire_button_task(msg: types.Message, delay: int):
+        async def expire_button_task(msg: types.Message, delay: int, user_lang: str):
             await asyncio.sleep(delay)
             try:
-                new_text = msg.html_text + f"\n\n❌ <b>Срок действия истек.</b>"
+                expired_text = MESSAGES[user_lang].get("expired", "Срок действия истек.")
+                new_text = msg.html_text + f"\n\n❌ <b>{expired_text}</b>"
                 await msg.edit_text(new_text, reply_markup=None, parse_mode="HTML")
                 await state.clear() 
             except Exception:
                 pass
 
-        asyncio.create_task(expire_button_task(sent_msg, remaining_time))
+        asyncio.create_task(expire_button_task(sent_msg, remaining_time, lang))
 
     else:
         await message.answer(MESSAGES[lang]["error"])

@@ -10,7 +10,8 @@ MESSAGES = {
         "redirect_instruction": "Нажмите на кнопку ниже, чтобы вернуться в приложение и завершить вход.",
         "expire_note": "<i>Ссылка активна 5 минут.</i>",
         "open_app_btn": "Открыть приложение",
-        "error": "❌ Ошибка авторизации."
+        "error": "❌ Ошибка авторизации.",
+        "expired": "Срок действия истек."
     },
     "tk": {
         "welcome": "Hasabyňyzy tassyklamak üçin aşakdaky düwmä basyň.",
@@ -23,6 +24,7 @@ MESSAGES = {
         "redirect_instruction": "Hasabyňyzy tassyklamak we goşundyga dolanmak üçin aşakdaky düwmä basyň.",
         "expire_note": "<i>Salkyn 5 minut dowam eder.</i>",
         "open_app_btn": "Goşundyga geçmek",
-        "error": "❌ Awtorizasiýa ýalňyşlygy."
+        "error": "❌ Awtorizasiýa ýalňyşlygy.",
+        "expired": "Möhleti geçdi." 
     }
 }
